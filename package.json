@@ -1,6 +1,6 @@
 {
   "name": "privily",
-  "description": "privily",
+  "description": "privily 是一个高阶函数，用于为 JavaScript/TypeScript 类创建私有变量作用域。通过这个工具，开发者可以轻松实现类中的私有变量，而无需依赖外部库或语言级别的私有成员特性。它为每个类实例提供了一个独立但安全的私有作用域，从而提高了代码的封装性与安全性",
   "version": "0.0.1",
   "type": "module",
   "scripts": {

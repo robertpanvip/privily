@@ -1,17 +1,22 @@
 import privily from '../../src'
 
-const A = privily((scope: { a: number }) =>
-    class A {
-        static a = 123
-
-        constructor() {
-            scope.a = 78888
+// 定义一个带私有作用域的类
+const MyClass = privily((scope: { privateData: string }) => {
+    class MyClass {
+        constructor(public name: string) {
+            // 初始化私有变量
+            scope.privateData = "This is private!";
         }
 
-        getA() {
-            console.log(scope.a)
+        getPrivateData() {
+            // 访问私有变量
+            return scope.privateData;
         }
     }
-);
-const c = new A();
-c.getA()
+
+    return MyClass;
+});
+
+const instance = new MyClass('example');
+console.log(instance.name);  // 输出: 'example'
+console.log(instance.getPrivateData());  // 输出: 'This is private!'

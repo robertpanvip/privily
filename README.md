@@ -3,7 +3,7 @@
 privily
 =======
 
-privily
+privily 是一个高阶函数，用于为 JavaScript/TypeScript 类创建私有变量作用域。通过这个工具，开发者可以轻松实现类中的私有变量，而无需依赖外部库或语言级别的私有成员特性。它为每个类实例提供了一个独立但安全的私有作用域，从而提高了代码的封装性与安全性
 
 [![NPM Version](https://img.shields.io/npm/v/privily?color=33cd56&logo=npm)](https://www.npmjs.com/package/privily)  [![NPM Version](https://img.shields.io/npm/dm/privily.svg?style=flat-square)](https://www.npmjs.com/package/privily)  [![unpacked size](https://img.shields.io/npm/unpacked-size/privily?color=green)](https://www.npmjs.com/package/privily)  [![Author](https://img.shields.io/badge/docs_by-robertpanvip-blue)](https://github.com/robertpanvip/privily.git)
 
@@ -17,21 +17,27 @@ privily
 
     import privily from 'privily'
     
-    const A = privily((scope: { a: number }) =>
-        class A {
-            static a = 123
-    
-            constructor() {
-                scope.a = 78888
+    // 定义一个带私有作用域的类
+    const MyClass = privily((scope: { privateData: string }) => {
+        class MyClass {
+            constructor(public name: string) {
+                // 初始化私有变量
+                scope.privateData = "This is private!";
             }
     
-            getA() {
-                console.log(scope.a)
+            getPrivateData() {
+                // 访问私有变量
+                return scope.privateData;
             }
         }
-    );
-    const c = new A();
-    c.getA()
+    
+        return MyClass;
+    });
+    
+    const instance = new MyClass('example');
+    console.log(instance.name);  // 输出: 'example'
+    console.log(instance.getPrivateData());  // 输出: 'This is private!'
+    
 
 [🖥️](https://code.juejin.cn/)  
   
