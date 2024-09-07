@@ -1,6 +1,6 @@
 {
-  "name": "privify",
-  "description": "privify",
+  "name": "privily",
+  "description": "privily",
   "version": "0.0.1",
   "type": "module",
   "scripts": {
@@ -38,14 +38,14 @@
   "keywords": [
     "privify"
   ],
-  "homepage": "https://github.com/xx/privify.git",
+  "homepage": "https://github.com/robertpanvip/privily.git",
   "repository": {
     "type": "git",
-    "url": "https://github.com/xx/privify.git"
+    "url": "https://github.com/robertpanvip/privily.git"
   },
   "bugs": {
-    "url": "https://github.com/xx/privify/issues"
+    "url": "https://github.com/robertpanvip/privily/issues"
   },
-  "author": "xx",
+  "author": "robertpanvip",
   "license": "ISC"
 }
