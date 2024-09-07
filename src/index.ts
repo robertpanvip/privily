@@ -28,8 +28,10 @@ export default function privily<S extends object, T extends Constructor>(c: (sco
 
         // 将原始类的静态属性复制到 `wrapper` 上，保留类的静态方法和属性
         Object.getOwnPropertyNames(WrappedClass).forEach(key => {
+            // 获取属性的描述符
+            const descriptor = Object.getOwnPropertyDescriptor(WrappedClass, key);
             // 忽略 "prototype" 属性，防止覆盖 `wrapper` 自己的原型
-            if (key !== "prototype") {
+            if (key !== "prototype"&&descriptor?.writable) {
                 (wrapper as any)[key] = (WrappedClass as any)[key];
             }
         });
